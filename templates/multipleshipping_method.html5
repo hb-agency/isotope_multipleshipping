@@ -1,0 +1,29 @@
+<div class="method_container">
+	<?php if (strlen($this->error)): ?>
+	<p class="error"><?php echo $this->error; ?></p><?php endif; ?>
+	
+	<div class="address_container">
+	<p><?php echo $this->address; ?></p>
+	</div>
+	<div class="product_container">
+	<?php foreach($this->products as $product): ?>
+	<span><?php echo $product->name; ?></span>
+	<?php endforeach; ?>
+	</div>
+	<div class="radio_container">
+	<?php foreach($this->shippingMethods as $method): ?>
+	<span>
+		<input id="ctrl_shipping_module_<?php echo $method['key']; ?>_<?php echo $method['id']; ?>" type="radio" class="radio shipping_module" name="multipleshipping[<?php echo $method['key']; ?>][module]" value="<?php echo $method['id']; ?>"<?php echo $method['checked']; ?>>
+		<label for="ctrl_shipping_module_<?php echo $method['key']; ?>_<?php echo $method['id']; ?>"><?php echo $method['label'] . $method['price']; ?></label>
+		<?php if ($method['note'] != ''): ?>
+		<div class="shipping_note"><?php echo $method['note']; ?></div>
+		<?php endif; ?>
+		<?php if ($method['form'] != ''): ?>
+		<div class="shipping_data" id="shipping_data_<?php echo $method['id']; ?>"><?php echo $method['form']; ?></div>
+		<?php endif; ?>
+	</span>
+	<?php endforeach; ?>
+	</div>
+	
+	<div class="clear">&nbsp;</div>
+</div>

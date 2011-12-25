@@ -1,0 +1,4 @@
+<div class="multipleshipping_review">
+<div class="address"><?php echo $this->address; ?></div>
+<div class="method"><?php echo $this->label; ?> (<?php echo $this->price; ?>)</div>
+</div>
